@@ -1,0 +1,10 @@
+streamlit
+numpy
+pandas
+matplotlib
+pillow
+openai
+plotly>=5.18.0
+kaleido==0.2.1
+reportlab
+yfinance>=0.2.66
