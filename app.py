@@ -1246,4 +1246,3 @@ with col2:
         st.markdown("<p style='color:#888; text-align:center;'>QR no disponible</p>", unsafe_allow_html=True)
 
 st.markdown("</div>", unsafe_allow_html=True)
-
