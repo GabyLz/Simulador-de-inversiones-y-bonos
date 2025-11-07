@@ -1255,9 +1255,26 @@ st.markdown(f"""
     font-size: 15px;
 }}
 </style>
+#prueba
+qr_path = os.path.join("telegram", "qr_contacto.png")
 
-<div class="footer-container">
-    <div class="footer-text">
+# Función para convertir imagen a base64 para usarla en HTML
+def img_to_base64(path):
+    with open(path, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode("utf-8")
+
+# Crear el HTML del footer con el QR dentro del div
+footer_html = """
+<div style="
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+    padding: 10px; 
+    background-color: #f5f5f5; 
+    border-radius: 10px;
+">
+    <div style="flex: 1;">
         <h4>💼 Simulador Real de Inversiones</h4>
         <p>
             ¿Tienes algún problema o sugerencia? 
@@ -1265,25 +1282,27 @@ st.markdown(f"""
             escaneando el código QR o escribiéndonos directamente.
         </p>
     </div>
-""", unsafe_allow_html=True)
+"""
 
-col1, col2 = st.columns([4, 1.2])
-with col1:
-    st.empty()
-with col2:
-    qr_path = os.path.join("telegram", "qr_contacto.png")
-    if os.path.exists(qr_path):
-        qr_image = Image.open(qr_path)
-        st.image(
-            qr_image, 
-            width=120, 
-            caption="Escanéame 📱", 
-            use_container_width=False
-        )
-    else:
-        st.markdown("<p style='color:#888; text-align:center;'>QR no disponible</p>", unsafe_allow_html=True)
+# Agregar QR si existe
+if os.path.exists(qr_path):
+    qr_base64 = img_to_base64(qr_path)
+    footer_html += f"""
+    <div>
+        <img src="data:image/png;base64,{qr_base64}" width="120" alt="QR Contacto"/>
+        <p style="text-align:center; font-size:12px;">Escanéame 📱</p>
+    </div>
+    """
+else:
+    footer_html += """
+    <div>
+        <p style='color:#888; text-align:center;'>QR no disponible</p>
+    </div>
+    """
 
-st.markdown("</div>", unsafe_allow_html=True)
+footer_html += "</div>"
+
+st.markdown(footer_html, unsafe_allow_html=True)
 
 
 
