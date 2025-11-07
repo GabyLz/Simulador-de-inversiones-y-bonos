@@ -924,7 +924,7 @@ with tab_bonos:
             face_value = st.number_input("Valor nominal ($)", min_value=1.0, value=float(default_face_value), step=1000.0, format="%.2f")
             period = st.selectbox("Periodicidad del cupón", ["Mensual", "Trimestral", "Semestral", "Anual"], index=["Mensual", "Trimestral", "Semestral", "Anual"].index(default_period))
         with c2:
-            time_input = st.number_input(f"Tiempo total ({period_to_name(period)})", min_value=1, value=int(default_n_periods), step=1)
+            time_input = st.number_input(f"Tiempo total ", min_value=1, value=int(default_n_periods), step=1)
             coupon_rate = st.number_input("Tasa cupón anual (%)", min_value=0.0, value=float(default_coupon_rate), step=0.1, format="%.4f")
 
         tea_yield = st.number_input("Tasa de rendimiento requerida (TEA, %)", min_value=0.0, value=float(default_tea_yield), step=0.1, format="%.4f")
@@ -1284,6 +1284,7 @@ with col2:
         st.markdown("<p style='color:#888; text-align:center;'>QR no disponible</p>", unsafe_allow_html=True)
 
 st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
