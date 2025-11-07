@@ -386,7 +386,7 @@ else:
 # -----------------------------
 col1, col2 = st.columns([3, 1])
 with col1:
-    st.title("Simulador real de inversiones — ACCIONES Y BONOS")
+    st.title("Wobuffett - Simulador real de inversiones")
     st.write("Simula fondos de inversión (Acciones) o valores de deuda (Bonos).")
 with col2:
     st.write("")
@@ -1291,6 +1291,7 @@ st.markdown(f"""
     {qr_html}
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
