@@ -1303,8 +1303,7 @@ if base64_qr_code:
         display: flex;
         align-items: center;
         justify-content: space-between;
-        box-sizing: border-box;
-    ">
+        box-sizing: border-box;">
         <div style="flex: 4; padding-right: 20px;">
             <h4 style="margin: 0 0 5px 0; font-size: 1.1em;">💼 Simulador Real de Inversiones</h4>
             <p style="margin: 0; font-size: 0.9em;">
@@ -1330,6 +1329,7 @@ if base64_qr_code:
 else:
     # Mensaje de fallback si la imagen no se encuentra o falla la codificación
     st.info("El pie de página se omitió porque no se pudo cargar el código QR.")
+
 
 
 
