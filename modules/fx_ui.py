@@ -24,25 +24,28 @@ from modules.fx_converter import (
     FXCache,
 )
 
-# Inicializar cache global en session_state
-if 'fx_cache' not in st.session_state:
-    st.session_state.fx_cache = FXCache()
-
-# Inicializar valores de monedas si no existen
-if 'fx_from' not in st.session_state:
-    st.session_state.fx_from = 'PEN'
-
-if 'fx_to' not in st.session_state:
-    st.session_state.fx_to = 'USD'
-
-if 'fx_amount' not in st.session_state:
-    st.session_state.fx_amount = 100.0
-
 def show_fx_converter_widget():
     """
     Widget principal del conversor de monedas.
     Intuitivo, con manejo de errores y fallback manual.
     """
+    
+    # Inicializar cache global en session_state
+    if 'fx_cache' not in st.session_state:
+        st.session_state.fx_cache = FXCache()
+
+    # Inicializar valores de monedas si no existen
+    if 'fx_from' not in st.session_state:
+        st.session_state.fx_from = 'PEN'
+
+    if 'fx_to' not in st.session_state:
+        st.session_state.fx_to = 'USD'
+
+    if 'fx_amount' not in st.session_state:
+        st.session_state.fx_amount = 100.0
+    
+    if 'last_conversion' not in st.session_state:
+        st.session_state.last_conversion = None
     
     st.subheader("💱 Conversor de Monedas (Tiempo Real)")
     st.caption("Tasas actualizadas automáticamente desde open.er-api.com (API gratuita, sin autenticación)")
